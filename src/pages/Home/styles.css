@@ -1,0 +1,12 @@
+table {
+    border: 2px solid black;
+}
+
+td {
+    padding-left: 5px;
+}
+
+tr th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
