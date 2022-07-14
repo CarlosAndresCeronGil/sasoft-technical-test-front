@@ -1,0 +1,23 @@
+.detail-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 28%;
+    height: 100%;
+    float: left;
+}
+
+.info-seller-header {
+    width: 70%;
+    padding: 10px;
+}
+
+.info-seller-header h4 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}

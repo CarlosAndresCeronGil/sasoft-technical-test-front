@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import getSingleSeller from '../../services/getSingleSeller'
+import './styles.css'
+import sellerImg from '../../sellerImage.png'
 
 export default function Detail() {
     const [singleSeller, setSingleSeller] = useState({})
@@ -12,8 +14,6 @@ export default function Detail() {
         getSingleSeller({ sellerId: params.sellerId })
             .then(data => {
                 setSingleSeller(data)
-                console.log("data", data)
-                console.log("singleSeller", singleSeller)
                 setLoading(false)
             })
             .catch(err => {
@@ -28,12 +28,17 @@ export default function Detail() {
     }
 
     return (
-        <div>
+        <div className='detail-body'>
             <h1>Detail of the vendor {singleSeller.firstName}</h1>
-            <h2>Full name: </h2>
-            {singleSeller.firstName} {singleSeller.lastName}
-            <h2>Contact email: </h2>
-            {singleSeller.email}
+            <div className='info-seller-header'>
+                <img src={sellerImg} alt='sellerImage'></img>
+                <div className='info-seller-header-text'>
+                    <h4>Full name: </h4>
+                    {singleSeller.firstName} {singleSeller.lastName}
+                    <h4>Contact email: </h4>
+                    {singleSeller.email}
+                </div>
+            </div>
             <h2>Number of products offered: </h2>
             {singleSeller.products.length}
             <h2>Products: </h2>
@@ -47,6 +52,6 @@ export default function Detail() {
                     </div>
                 ))
             }
-                    </div>
-                )
+        </div>
+    )
 }
